@@ -5,7 +5,12 @@ import org.junit.Test;
 
 public class GameTest {
   @Test public void testGetsWordToGuess() {
-    Game game = new Game();
-    assertEquals(game.getWordToGuess(), "B_____");
+    Game game = new Game("MAKERS");
+    assertEquals(game.getWordToGuess(), "M_____");
+  }
+
+  @Test public void testGetsRemainingAttempts() {
+    Game game = new Game("MAKERS");
+    assertEquals(game.getRemainingAttempts(), Integer.valueOf(10));
   }
 }
