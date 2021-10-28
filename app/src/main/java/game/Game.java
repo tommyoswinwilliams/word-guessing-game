@@ -1,12 +1,15 @@
 package game;
 
+import java.util.ArrayList;
+
 public class Game {
   String word;
   Integer remainingAttempts;
+  ArrayList<Character> guessedLetters = new ArrayList<Character>();
+
   
   public Game(WordChooser wordChooser) {
     word = wordChooser.getRandomWordFromDictionary();
-    System.out.println(word);
     remainingAttempts = 10;
   }
   
@@ -28,4 +31,13 @@ public class Game {
     return remainingAttempts;
   }
 
+  public Boolean guessLetter(Character letter) {
+    if (word.indexOf(letter) >= 0) {
+      guessedLetters.add(letter);
+      return true;
+    } else {
+      remainingAttempts --;
+      return false;
+    }
+  }
 }
